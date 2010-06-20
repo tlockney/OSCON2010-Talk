@@ -1,0 +1,4 @@
+#External Dependencies
+#Sun Jun 20 13:55:47 PDT 2010
+/home/tlockney/Development/OSCON2010-Talk/project/boot/scala-2.7.7/lib/scala-library.jar=Oscon2010Project.scala
+/home/tlockney/Development/OSCON2010-Talk/project/boot/scala-2.7.7/org.scala-tools.sbt/sbt/0.7.4/sbt_2.7.7-0.7.4.jar=Oscon2010Project.scala

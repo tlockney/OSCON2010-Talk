@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="1.0" xmlns:e="http://ant.apache.org/ivy/extra">
+	<info organisation="net.lockney" module="oscon-2010-talk_2.8.0.RC3" revision="0.1" status="release" publication="20100620135453"/>
+	<configurations>
+		<conf name="default" visibility="public" description=""/>
+	</configurations>
+	<publications>
+	</publications>
+	<dependencies>
+		<dependency org="net.lockney" name="hibernate-console_2.8.0.RC3" rev="0.1" conf="default->default(compile)">
+			
+		</dependency>
+		<dependency org="net.lockney" name="hibernate-jpa_2.8.0.RC3" rev="0.1" conf="default->default(compile)">
+			
+		</dependency>
+		<dependency org="net.lockney" name="httpclient_2.8.0.RC3" rev="0.1" conf="default->default(compile)">
+			
+		</dependency>
+	</dependencies>
+</ivy-module>
