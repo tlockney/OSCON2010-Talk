@@ -4,11 +4,11 @@ import javax.persistence.*;
 
 import java.util.*;
 
-public class UserController {
+public class UserDAO {
 
   EntityManagerFactory emf;
 
-  public UserController() { 
+  public UserDAO() { 
     emf = Persistence.createEntityManagerFactory("hibernateExample");
   }
 
