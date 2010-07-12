@@ -26,6 +26,5 @@ then copy the JAR files into the lib directory of this project.
     > val h = new org.apache.http.impl.client.DefaultHttpClient
     > val resp = h.execute(get)
     > resp.getAllHeaders.foreach { println _ }
-
-
+    > resp.getEntity.consumeContent
 
