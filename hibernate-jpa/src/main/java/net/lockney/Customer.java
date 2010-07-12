@@ -11,8 +11,8 @@ public class Customer {
   private Integer id;
 
   private String firstName;
-
   private String lastName;
+  private String phoneNumber;
 
   @OneToMany(mappedBy="customer")
   private Set<Order> orders;
@@ -32,6 +32,9 @@ public class Customer {
   public void setLastName(String lastName) { this.lastName = lastName; }
 
   public String getFullName() { return this.firstName + " " + this.lastName; }
+
+  public String getPhoneNumber() { return this.phoneNumber; }
+  public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
 
   public void addOrder(Order order) { 
     this.orders.add(order); 
