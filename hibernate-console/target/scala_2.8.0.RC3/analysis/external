@@ -1,2 +1,5 @@
 #External Dependencies
-#Sun Jun 20 13:56:12 PDT 2010
+#Mon Jul 05 17:06:11 PDT 2010
+/Volumes/Data/trentonl/Documents/hjs/OSCON2010-Talk/hibernate-console/project/boot/scala-2.8.0.RC3/lib/scala-library.jar=src/main/scala/Test.scala
+/Volumes/Data/trentonl/Documents/hjs/OSCON2010-Talk/hibernate-console/lib_managed/scala_2.8.0.RC3/compile/hibernate-jpa-2.0-api-1.0.0.Final.jar=src/main/scala/Test.scala
+/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Classes/classes.jar=src/main/scala/Test.scala

@@ -1,2 +1,4 @@
 #Source Dependencies
-#Sun Jun 20 13:56:25 PDT 2010
+#Mon Jul 05 16:19:17 PDT 2010
+src/main/java/net/lockney/UserDAO.java=
+src/main/java/net/lockney/User.java=src/main/java/net/lockney/UserDAO.java

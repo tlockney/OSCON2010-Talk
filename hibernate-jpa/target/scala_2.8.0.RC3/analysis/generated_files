@@ -1,2 +1,4 @@
 #Generated Classes
-#Sun Jun 20 13:56:25 PDT 2010
+#Mon Jul 05 16:19:17 PDT 2010
+src/main/java/net/lockney/UserDAO.java=target/scala_2.8.0.RC3/classes/net/lockney/UserDAO.class
+src/main/java/net/lockney/User.java=target/scala_2.8.0.RC3/classes/net/lockney/User.class
