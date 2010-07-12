@@ -15,6 +15,8 @@
     > em.persist(new Customer("Thomas","Lockney"))
     > em.getTransaction.commit
 
+    > // for some reason the type returned by getResultList() is not something
+    > // Scala is able to deal with
     > val customers = em.createQuery("SELECT c FROM Customer c").getResultList().asInstanceOf[java.util.List[Customer]]
 
     > def printCustomer(x: Any) = x match {
@@ -35,7 +37,8 @@
     > val orderQuery = em.createQuery("SELECT o FROM Order o, Customer c WHERE o.customer = c AND c.lastName = :lastName")
     > orderQuery.setParameter("lastName","Lockney")
     > val thomasOrder = orderQuery.getResultList.asInstanceOf[java.util.List[Order]].get(0)
-
+    
+    > // here we're using a named query defined on the Order class
     > val orderQuery2 = em.createNamedQuery("Order.byCustomerLastName")
     > orderQuery2.setParameter("lastName","Lockney")
     > val thomasOrder2 = orderQuery2.getResultList.asInstanceOf[java.util.List[Order]].get(0)
