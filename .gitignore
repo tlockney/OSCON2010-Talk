@@ -1,7 +1,10 @@
 hibernate-console/lib_managed
 hibernate-console/target
+hibernate-console/project/build/target
 hibernate-jpa/lib_managed
 hibernate-jpa/target
+hibernate-jpa/project/build/target
 httpclient/lib
 httpclient/lib_managed
 httpclient/target
+httpclient/project/build/target
