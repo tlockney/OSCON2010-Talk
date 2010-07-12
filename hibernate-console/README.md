@@ -2,8 +2,8 @@
     cd ../hibernate-jpa
     sbt publish-local
     cd ../hibernate-console
-    sbt console
     sbt update
+    sbt console
 
     > import net.lockney._
     > import javax.persistence._
