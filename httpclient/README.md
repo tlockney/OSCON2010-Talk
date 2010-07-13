@@ -29,3 +29,25 @@ then copy the JAR files into the lib directory of this project.
     val resp = h.execute(get)
     resp.getAllHeaders.foreach { println _ }
     resp.getEntity.consumeContent
+
+A Twitter example with some XML
+
+    import scala.io.Source
+    import java.io.InputStream
+
+    def convertStreamToString(is: InputStream) : String =
+    Source.fromInputStream(is).getLines.reduceLeft(_ + _)
+
+    val uri = URIUtils.createURI("http","twitter.com",80,"/statuses/public_timeline.xml",URLEncodedUtils.format(params, "UTF-8"),null)
+    val get = new HttpGet(uri)
+
+    // this gives warnings; twitter has bad headers
+    val resp = h.execute(get)
+
+    import scala.xml._
+
+    val bodyXml = XML.loadString(convertStreamToString(resp.getEntity.getContent))
+    (bodyXml \\ "text") . take(10) . foreach {e => println(e.text.take(60))}
+
+
+
