@@ -2,28 +2,33 @@ package net.lockney;
 
 import javax.persistence.*;
 
-@NamedQuery(name="Order.byUserLastName",
-    query="SELECT o FROM Order o, User u WHERE o.user = u AND u.lastName = :lastName")
+@NamedQuery(name="Order.byCustomerLastName",
+    query="SELECT o FROM Order o, Customer c WHERE o.customer = c AND c.lastName = :lastName")
 
 @Entity
-@Table(name="USER_ORDER")
+@Table(name="CUSTOMER_ORDER")
 public class Order {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
   private Integer id;
 
   @ManyToOne
-  @JoinColumn(name="USER_ID")
-  private User user;
+  @JoinColumn(name="CUSTOMER_ID")
+  private Customer customer;
 
   private float totalPrice;
 
   public Order() { }
 
-  public Order(User user) { this.user = user; }
+  public Order(Customer customer) { this.customer = customer; }
 
-  public User getUser() { return this.user; }
-  public void setUser(User user) { this.user = user; }
+  public Order(Customer customer, float totalPrice) {
+    this(customer);
+    this.totalPrice = totalPrice;
+  }
+
+  public Customer getcustomer() { return this.customer; }
+  public void setCustomer(Customer customer) { this.customer = customer; }
 
   public float getTotalPrice() { return this.totalPrice; }
   public void setTotalPrice(float totalPrice) { this.totalPrice = totalPrice; }
