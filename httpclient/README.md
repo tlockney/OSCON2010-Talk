@@ -55,5 +55,5 @@ then copy the JAR files into the lib directory of this project.
     implicit def stream2String(is:InputStream): String =
       Source.fromInputStream(is).getLines().reduceLeft(_+_)   
 
-    val bodyXml = XML.loadString(convertStreamToString(resp.getEntity.getContent))
+    val bodyXml = XML.loadString(resp.getEntity.getContent)
     (bodyXml \\ "text") . take(10) . foreach {e => println(e.text.take(60))}
