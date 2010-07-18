@@ -1,4 +1,4 @@
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractXmlApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import static junit.framework.Assert.assertTrue;
@@ -7,7 +7,7 @@ import static org.junit.Assert.assertThat;
 
 public class SpringHarness {
     public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("app.xml");
+        AbstractXmlApplicationContext ctx = new ClassPathXmlApplicationContext("app.xml");
 
         // check value of the singleton
         String singleton = (String) ctx.getBean("single");
