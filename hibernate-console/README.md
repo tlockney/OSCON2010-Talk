@@ -5,6 +5,7 @@
     sbt update
     sbt console
 
+    scala >
     import net.lockney._
     import javax.persistence._
     import scala.collection.JavaConversions._
