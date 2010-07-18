@@ -18,8 +18,12 @@ then copy the JAR files into the lib directory of this project.
     import org.apache.http.client.utils.{URIUtils,URLEncodedUtils}
     import org.apache.http.client.methods.HttpGet
     import org.apache.http.impl.client.DefaultHttpClient
+
+    import java.io.InputStream
     
-    implicit def tuple2NameValuePair(t:Tuple2[String,String]): BasicNameValuePair = new BasicNameValuePair(t._1, t._2)
+    implicit def tuple2NVP(t:Tuple2[String,String]): BasicNameValuePair = new BasicNameValuePair(t._1, t._2)
+    implicit def stream2String(is:InputStream): String =
+      Source.fromInputStream(is).getLines().reduceLeft(_+_)   
     
     var params = new java.util.ArrayList[NameValuePair]()
     params.add(("q","httpclient"))
@@ -28,3 +32,23 @@ then copy the JAR files into the lib directory of this project.
     val h = new DefaultHttpClient
     val resp = h.execute(get)
     resp.getAllHeaders.foreach { println _ }
+
+A Twitter example with some XML    
+
+    import scala.io.Source
+    import java.io.InputStream
+
+    def convertStreamToString(is: InputStream) : String =
+    Source.fromInputStream(is).getLines.reduceLeft(_ + _)
+    
+    val uri = URIUtils.createURI("http","twitter.com",80,"/statuses/public_timeline.xml",URLEncodedUtils.format(params, "UTF-8"),null)
+    val get = new HttpGet(uri)
+
+    // this gives warnings; twitter has bad headers
+    val resp = h.execute(get)
+
+    import scala.xml._
+
+    val bodyXml = XML.loadString(convertStreamToString(resp.getEntity.getContent))
+    (bodyXml \\ "text") . take(10) . foreach {e => println(e.text.take(60))}
+    
