@@ -13,7 +13,7 @@ public class SpringHarness {
         String singleton = (String) ctx.getBean("single");
         assertThat(singleton, is("the singleton"));
 
-        // check that singletons are singletones and prototoypes, prototypes
+        // check that the singletons behaves like a singleton
         assertTrue(ctx.getBean("single") == ctx.getBean("single"));
     }
 }
