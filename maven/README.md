@@ -12,7 +12,29 @@ Convert to an sbt project
 
   head pom.xml
   sbt
-  
+
+Run it
+
+  sbt>
+  run
+
+More interactive examples
+
+  sbt>
+  console
+
+  scala>
+  import org.springframework.context.support._
+
+  val ctx = new ClassPathXmlApplicationContext("app.xml")
+  ctx.getBean("single")
+  ctx.close
+  ctx.getBean("single")
+  ctx.refresh
+  ctx.getBean("single")
+
+If you wanted to interoperate with existing maven projects locally
+
   mkdir project/build
   vim project/build/UseMaven.scala
 
@@ -25,19 +47,4 @@ Add to UseMaven.scala:
     // http://macstrac.blogspot.com/2010/01/using-sbt-on-your-scala-maven-project.html
     val mavenLocal = "Local Maven Repository" at "file://" + Path.userHome + "/.m2/repository"
   }
-
-Now, start it up
-
-  sbt update console
-
-  scala>
-  import org.springframework.context.support._
-
-  val ctx = new ClassPathXmlApplicationContext("app.xml")
-  print(ctx.getBean("single"))
-  ctx.close
-  ctx.getBean("single")
-  ctx.refresh
-  ctx.getBean("single")
-
 
