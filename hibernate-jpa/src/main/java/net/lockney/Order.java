@@ -27,6 +27,10 @@ public class Order {
     this.totalPrice = totalPrice;
   }
 
+  public Order(float totalPrice) {
+    this.totalPrice = totalPrice;
+  }
+
   public Customer getcustomer() { return this.customer; }
   public void setCustomer(Customer customer) { this.customer = customer; }
 

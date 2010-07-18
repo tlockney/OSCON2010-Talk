@@ -22,8 +22,8 @@ then copy the JAR files into the lib directory of this project.
 
     var params = new java.util.ArrayList[NameValuePair]()
 
-    // this sucks!
     params.add(new BasicNameValuePair("num","50"))
+    //                ^^ this sucks!
 
     // so let's add a way to simplify this
     implicit def tuple2NVP(t:Tuple2[String,String]): BasicNameValuePair = new BasicNameValuePair(t._1, t._2)
