@@ -57,4 +57,3 @@ then copy the JAR files into the lib directory of this project.
 
     val bodyXml = XML.loadString(convertStreamToString(resp.getEntity.getContent))
     (bodyXml \\ "text") . take(10) . foreach {e => println(e.text.take(60))}
-    
