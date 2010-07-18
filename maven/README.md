@@ -1,11 +1,15 @@
+Nothing up our sleeves...
+
+  rm -rf project lib lib_managed target
+
 See that it builds as a maven project
 
+  less src/main/resources/app.xml
   less src/main/java/SpringHarness.java
   mvn clean package
 
 Convert to an sbt project
 
-  rm -rf project
   head pom.xml
   sbt
   
