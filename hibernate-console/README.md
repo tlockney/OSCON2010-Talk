@@ -28,7 +28,7 @@
     val customersFromQuery = 
       em.createQuery("SELECT c FROM Customer c").getResultList().asInstanceOf[java.util.List[Customer]]
 
-    customers.foreach( cust => println(cust.getFullName) }
+    customersFromQuery.foreach { cust => println(cust.getFullName) }
 
     val thomas = customersFromQuery.get(0)
     // alternately
@@ -40,7 +40,9 @@
     em.getTransaction.commit
 
     val orders = 1 to 10 map { _ => 
-      new Order(scala.math.random.floatValue * 100) 
+      import scala.math.random
+      val cust = customers((random * customers.size).intValue)
+      em.persist(new Order(cust, random.floatValue * 100))
     }
 
     val orderQuery = em.createQuery("SELECT o FROM Order o, Customer c WHERE o.customer = c AND c.lastName = :lastName")
