@@ -2,10 +2,10 @@ Nothing up our sleeves...
 
   rm -rf project lib lib_managed target
 
-See that it builds as a maven project
+Poke around a bit
 
-  less src/main/resources/app.xml
-  less src/main/java/SpringHarness.java
+  vim src/main/resources/app.xml
+  vim src/main/java/SpringHarness.java
   mvn clean package
 
 Convert to an sbt project
@@ -16,6 +16,7 @@ Convert to an sbt project
 Run it
 
   sbt>
+  update
   run
 
 More interactive examples
@@ -33,7 +34,7 @@ More interactive examples
   ctx.refresh
   ctx.getBean("single")
 
-If you wanted to interoperate with existing maven projects locally
+To interoperate with other Maven projects you build locally
 
   mkdir project/build
   vim project/build/UseMaven.scala
@@ -43,7 +44,7 @@ Add to UseMaven.scala:
   import sbt._
 
   class UseMavenProject(info: ProjectInfo) extends DefaultProject(info) {
-    // copied the magics from
+    // courtesey
     // http://macstrac.blogspot.com/2010/01/using-sbt-on-your-scala-maven-project.html
     val mavenLocal = "Local Maven Repository" at "file://" + Path.userHome + "/.m2/repository"
   }
