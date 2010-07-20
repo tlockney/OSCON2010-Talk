@@ -31,7 +31,7 @@ public class Order {
     this.totalPrice = totalPrice;
   }
 
-  public Customer getcustomer() { return this.customer; }
+  public Customer getCustomer() { return this.customer; }
   public void setCustomer(Customer customer) { this.customer = customer; }
 
   public float getTotalPrice() { return this.totalPrice; }
