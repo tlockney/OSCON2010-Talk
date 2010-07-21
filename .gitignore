@@ -19,3 +19,5 @@ twilio-app/project/boot
 twilio-app/project/build/target
 
 maven/target
+maven/project
+maven/lib_managed
