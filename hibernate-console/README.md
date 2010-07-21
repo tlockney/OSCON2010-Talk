@@ -23,8 +23,9 @@
     customers.foreach { em.persist(_) }
     em.getTransaction.commit
 
-    // for some reason the type returned by getResultList() is not something
-    // Scala is able to deal with
+    // Java is not able to give us enough to infer the parameterized type returned by
+    // getResultList(), so we have to tell Scala a bit more to avoid later casting. 
+    // Generally, you would write some wrapper around this to make life simpler
     val customersFromQuery = 
       em.createQuery("SELECT c FROM Customer c").getResultList().asInstanceOf[java.util.List[Customer]]
 
