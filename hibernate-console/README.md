@@ -42,7 +42,9 @@
     val orders = 1 to 10 map { _ => 
       import scala.math.random
       val cust = customers((random * customers.size).intValue)
-      em.persist(new Order(cust, random.floatValue * 100))
+      val order = new Order(cust, random.floatValue * 100)
+      em.persist(order)
+      order // put this here so it gets returned to the orders collection
     }
 
     val orderQuery = em.createQuery("SELECT o FROM Order o, Customer c WHERE o.customer = c AND c.lastName = :lastName")
