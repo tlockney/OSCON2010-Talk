@@ -14,8 +14,8 @@
     val em = emf.createEntityManager
     em.getTransaction.begin
     
-    val firstNames = Set("Thomas","Trenton","Martin","Jonas","David")
-    val lastNames = Set("Lockney","Lipscomb","Odersky","Boner","Pollack")
+    val firstNames = Seq("Thomas","Trenton","Martin","Jonas","David")
+    val lastNames = Seq("Lockney","Lipscomb","Odersky","Boner","Pollack")
 
     val customers = firstNames.zip(lastNames).map { namePair =>
       new Customer(namePair._1, namePair._2)
